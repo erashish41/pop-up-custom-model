@@ -7,15 +7,22 @@ export const Modal = () => {
 
     const handleToggleModelPopUp = () => {
         setShowModalPopUp(!showModalPopUp);
-        
-        
+    }
+
+    function onClose(){
+        setShowModalPopUp(false)
     }
 
     return (
         <div>
-            <button onClick={handleToggleModelPopUp}>Open Model Pop up</button>
+            <button className="box-modal" onClick={handleToggleModelPopUp}>Open Model Pop up</button>
             {
-                showModalPopUp && <ModalPopUp />
+                showModalPopUp && 
+                <ModalPopUp
+                    id={"custom-id"}
+                    header={<h1>Customised Header</h1>}
+                    footer={<h1>Customised Footer</h1>}
+                    onClose={onClose}/>
             }
         </div>
     )

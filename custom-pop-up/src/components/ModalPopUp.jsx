@@ -1,7 +1,18 @@
-export const ModalPopUp = () => {
+export const ModalPopUp = ({id, header, body, footer, onClose}) => {
     return (
-        <div>
-            
+        <div id={id || "Modal"} className="modal">
+            <div className="modal-content">
+                <div className="header">
+                    <span onClick={onClose} className="close-modal-icon">x</span>
+                    <h2>{header ? header : "Header"}</h2>
+                </div>
+                <div className="body">
+                    {body ? body : <div> This is our body Modal</div>}
+                </div>
+                <div className="footer">
+                    {footer ? footer : <h2>Footer</h2>}
+                </div>
+            </div>
         </div>
     )
 }
